@@ -13,6 +13,7 @@ namespace PRSLibrary.Models {
         public virtual DbSet<Vendor> Vendors { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<RequestLine> RequestLines { get; set; }
 
         //default contructor
         public PrsDbContext() { }
