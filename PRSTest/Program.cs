@@ -15,8 +15,8 @@ namespace PRSTest {
            
 
             var newUser = new User() {
-                Id = 0, Username = "yy", Password = "xx",
-                Firstname = "User", Lastname = "YY",
+                Id = 0, Username = "hh", Password = "xx",
+                Firstname = "User", Lastname = "HH",
                 Phone = "211", Email = "xxx@user.com",
                 IsReviewer = false, IsAdmin = false
             };
@@ -30,6 +30,9 @@ namespace PRSTest {
             } else { 
                 Console.WriteLine($"User3: {user3.Firstname} {user3.Lastname}"); }
 
+            user3.Lastname = "User3";
+            userCtrl.Change(user3);
+
             var user33 = userCtrl.GetbyPk(33);
 
             if (user33 is null) {
@@ -38,12 +41,12 @@ namespace PRSTest {
                 Console.WriteLine($"User33: {user33.Firstname} {user33.Lastname}");
             }
 
-
+            userCtrl.Remove(5);
 
             var users = userCtrl.GetAll();
 
             foreach(var user in users) {
-                Console.WriteLine($"{user.Firstname} {user.Lastname}");
+                Console.WriteLine($"{user.Id}{user.Firstname} {user.Lastname}");
             }
 
 
