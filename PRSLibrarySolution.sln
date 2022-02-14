@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRSLibrary", "PRSLibrary\PRSLibrary.csproj", "{39D8021C-918D-4D5F-AA26-5EE5FC38A7E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRSTest", "PRSTest\PRSTest.csproj", "{0B80F5FD-C690-4006-B1CC-9DF51538A924}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39D8021C-918D-4D5F-AA26-5EE5FC38A7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D8021C-918D-4D5F-AA26-5EE5FC38A7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D8021C-918D-4D5F-AA26-5EE5FC38A7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D8021C-918D-4D5F-AA26-5EE5FC38A7E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B80F5FD-C690-4006-B1CC-9DF51538A924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B80F5FD-C690-4006-B1CC-9DF51538A924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B80F5FD-C690-4006-B1CC-9DF51538A924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B80F5FD-C690-4006-B1CC-9DF51538A924}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29859AC0-3CFE-493F-87B7-65E7A79FBFFD}
+	EndGlobalSection
+EndGlobal
