@@ -11,6 +11,7 @@ namespace PRSLibrary.Models {
         
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
 
         //default contructor
         public PrsDbContext() { }
@@ -32,6 +33,10 @@ namespace PRSLibrary.Models {
             builder.Entity<Vendor>(e => {
                 e.HasIndex(p => p.Code).IsUnique(true);
             });
+            builder.Entity<Product>(e => {
+                e.HasIndex(p => p.PartNbr).IsUnique(true);
+            });
+            
             
         
 
