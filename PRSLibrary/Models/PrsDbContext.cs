@@ -10,6 +10,7 @@ namespace PRSLibrary.Models {
     public class PrsDbContext : DbContext {
         
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Vendor> Vendors { get; set; }
 
         //default contructor
         public PrsDbContext() { }
@@ -24,10 +25,17 @@ namespace PRSLibrary.Models {
         }
 
         protected override void OnModelCreating(ModelBuilder builder) {
-           // makes Username in User Unique
+            // makes Username in User Unique
             builder.Entity<User>(e => {
-                e.HasIndex(p => p.Username).IsUnique(true);
+            e.HasIndex(p => p.Username).IsUnique(true);
             });
+            builder.Entity<Vendor>(e => {
+                e.HasIndex(p => p.Code).IsUnique(true);
+            });
+            
+        
+
+            
                 
         }
     }
