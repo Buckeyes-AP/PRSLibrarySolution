@@ -24,6 +24,7 @@ namespace PRSLibrary.Models {
         
         // recognize FK
         public virtual Vendor Vendor { get; set; }
+      
 
         public Product() { }
     }
