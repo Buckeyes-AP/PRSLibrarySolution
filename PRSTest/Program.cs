@@ -3,33 +3,57 @@ using PRSLibrary.Models;
 using System;
 
 namespace PRSTest {
-    class Program {
+    public class Program {
+        
+        static void Print(Product product) {
+            Console.WriteLine($"{product.Id,-5} {product.PartNbr,-12} {product.Name,-12} {product.Price,10:c} {product.Vendor.Name,-15}");
+        }
+        
         static void Main(string[] args) {
 
             var context = new PrsDbContext();
-            var vendorCtrl = new VendorsController(context);
 
-            var newVendor = new Vendor() {
-                Id = 0, Code = "cc", Name = "ff", Address = "xx",
-                City = "Cincinnati", State = "Oh", Zip = "45200",
-                Phone = "513-111-2222", Email = "cincy@cbell.com"
+            var prodCtrl = new ProductsController(context);
 
-            };
+            var products = prodCtrl.GetAll();
 
-            vendorCtrl.Create(newVendor);
-
-            var vendor3 = vendorCtrl.GetbyPk(3);
-            if (vendor3 is null) {
-                Console.WriteLine("User not found!");
-            } else {
-                Console.WriteLine($"Vendor3: {vendor3.Name} {vendor3.Address}");
+            foreach(var p in products) {
+                Print(p);
             }
 
-            var vendors = vendorCtrl.GetAll();
+            var product = prodCtrl.GetByPk(2);
 
-            foreach(var vendor in vendors) {
-                Console.WriteLine($"{vendor.Id} {vendor.Code} {vendor.Name}");
+            if(product is not null) {
+                Print(product);
             }
+
+
+
+            //var context = new PrsDbContext();
+            //var vendorCtrl = new VendorsController(context);
+
+            //var newVendor = new Vendor() {
+            //    Id = 0, Code = "ee", Name = "ff", Address = "xx",
+            //    City = "Cincinnati", State = "Oh", Zip = "45200",
+            //    Phone = "513-111-2222", Email = "cincy@cbell.com"
+
+            //};
+
+            //vendorCtrl.Create(newVendor);
+
+            //var vendor3 = vendorCtrl.GetbyPk(3);
+            //if (vendor3 is null) {
+            //    Console.WriteLine("User not found!");
+            //} else {
+            //    Console.WriteLine($"Vendor3: {vendor3.Name} {vendor3.Address}");
+            //}
+
+            //var vendors = vendorCtrl.GetAll();
+
+            //foreach(var vendor in vendors) {
+            //    Console.WriteLine($"{vendor.Id} {vendor.Code} {vendor.Name}");
+            //}
+
 
 
 
