@@ -27,6 +27,7 @@ namespace PRSLibrary.Controllers {
                                  LineTotal = rl.Quantity * p.Price
                              }).Sum(x => x.LineTotal);
             _context.SaveChanges();
+
         }
 
         public IEnumerable<RequestLine> GetAll() {
@@ -49,10 +50,12 @@ namespace PRSLibrary.Controllers {
             }
             _context.RequestLines.Add(requestLine);
             _context.SaveChanges();
+            RecalculateRequestTotal(requestLine.RequestId);
             return requestLine;
         }
         public void Change(RequestLine requestLine) {
             _context.SaveChanges();
+            RecalculateRequestTotal(requestLine.RequestId);
            
         }
 
@@ -64,7 +67,7 @@ namespace PRSLibrary.Controllers {
             }
             _context.RequestLines.Remove(RequestLine);
             _context.SaveChanges();
-
+            RecalculateRequestTotal(RequestLine.RequestId);
         }
 
     }       

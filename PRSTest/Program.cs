@@ -14,13 +14,19 @@ namespace PRSTest {
 
             var context = new PrsDbContext();
 
-            var reqCtrl = new RequestsController(context);
+            var reqlCtrl = new RequestLinesController(context);
 
-            var reqs = reqCtrl.GetRequestsInReview(3);
+            var reql = reqlCtrl.GetByPk(1);
+            reql.Quantity = 1;
+            reqlCtrl.Change(reql);
 
-            foreach(var req in reqs) {
-                Console.WriteLine($"{req.Description} {req.Status} {req.Total} {req.UserId}");
-            }
+            //var reqCtrl = new RequestsController(context);
+
+            //var reqs = reqCtrl.GetRequestsInReview(3);
+
+            //foreach(var req in reqs) {
+            //    Console.WriteLine($"{req.Description} {req.Status} {req.Total} {req.UserId}");
+            //}
 
            // var req = reqCtrl.GetByPk(1);
 
