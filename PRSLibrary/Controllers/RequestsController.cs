@@ -35,7 +35,7 @@ namespace PRSLibrary.Controllers {
             _context.SaveChanges();
             return Request;
         }
-        public void Change(User user) {
+        public void Change(Request Request) {
             _context.SaveChanges();
 
         }

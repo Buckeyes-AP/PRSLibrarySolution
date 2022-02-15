@@ -38,18 +38,18 @@ namespace PRSLibrary.Controllers {
             _context.SaveChanges();
             return requestLine;
         }
-        public void Change(User user) {
+        public void Change(RequestLine requestLine) {
             _context.SaveChanges();
-
+           
         }
 
 
         public void Remove(int id) {
-            var RequestLine = _context.Requests.Find(id);
+            var RequestLine = _context.RequestLines.Find(id);
             if (RequestLine is null) {
-                throw new Exception("Request not found!");
+                throw new Exception("RequestLine not found!");
             }
-            _context.Requests.Remove(RequestLine);
+            _context.RequestLines.Remove(RequestLine);
             _context.SaveChanges();
 
         }

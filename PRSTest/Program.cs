@@ -1,31 +1,54 @@
 ﻿using PRSLibrary.Controllers;
 using PRSLibrary.Models;
 using System;
+using System.Linq;
 
 namespace PRSTest {
     public class Program {
         
-        static void Print(Product product) {
-            Console.WriteLine($"{product.Id,-5} {product.PartNbr,-12} {product.Name,-12} {product.Price,10:c} {product.Vendor.Name,-15}");
-        }
+        //static void Print(Product product) {
+        //    Console.WriteLine($"{product.Id,-5} {product.PartNbr,-12} {product.Name,-12} {product.Price,10:c} {product.Vendor.Name,-15}");
+        //}
         
         static void Main(string[] args) {
 
             var context = new PrsDbContext();
 
-            var prodCtrl = new ProductsController(context);
 
-            var products = prodCtrl.GetAll();
 
-            foreach(var p in products) {
-                Print(p);
+            var userCtrl = new UsersController(context);
+
+            var user = userCtrl.Login("sa", "sax");
+
+            if(user is null) {
+                Console.WriteLine("User not found");
+            } else {
+                Console.WriteLine(user.Username);
             }
 
-            var product = prodCtrl.GetByPk(2);
 
-            if(product is not null) {
-                Print(product);
-            }
+            //var username = "gdoud";
+            //var password = "password";
+            //context.Users.SingleOrDefault(x => x.Username == username && x.Password == password);
+
+            //var user = from u in context.Users
+            //        where u.Username == username && u.Password == password
+            //        select u;
+
+
+            //var prodCtrl = new ProductsController(context);
+
+            //var products = prodCtrl.GetAll();
+
+            //foreach(var p in products) {
+            //    Print(p);
+            //}
+
+            //var product = prodCtrl.GetByPk(2);
+
+            //if(product is not null) {
+            //    Print(product);
+            //}
 
 
 
