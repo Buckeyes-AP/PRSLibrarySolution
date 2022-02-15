@@ -14,17 +14,35 @@ namespace PRSTest {
 
             var context = new PrsDbContext();
 
+            var reqCtrl = new RequestsController(context);
 
+            var reqs = reqCtrl.GetRequestsInReview(3);
 
-            var userCtrl = new UsersController(context);
-
-            var user = userCtrl.Login("sa", "sax");
-
-            if(user is null) {
-                Console.WriteLine("User not found");
-            } else {
-                Console.WriteLine(user.Username);
+            foreach(var req in reqs) {
+                Console.WriteLine($"{req.Description} {req.Status} {req.Total} {req.UserId}");
             }
+
+           // var req = reqCtrl.GetByPk(1);
+
+            //reqCtrl.SetReview(req);
+            //reqCtrl.SetApproved(req);
+            //reqCtrl.SetReject(req);
+
+            //req = reqCtrl.GetByPk(1);
+
+            //Console.WriteLine($"{req.Description} {req.Status} {req.Total}");
+
+
+
+            //var userCtrl = new UsersController(context);
+
+            //var user = userCtrl.Login("sa", "sax");
+
+            //if(user is null) {
+            //    Console.WriteLine("User not found");
+            //} else {
+            //    Console.WriteLine(user.Username);
+            //}
 
 
             //var username = "gdoud";

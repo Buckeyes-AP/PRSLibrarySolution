@@ -16,6 +16,19 @@ namespace PRSLibrary.Controllers {
             this._context = context;
         }
 
+        private void RecalculateRequestTotal(int requestId) {
+            var request = _context.Requests.Find(requestId);
+
+            request.Total = (from rl in _context.RequestLines
+                             join p in _context.Products
+                             on rl.ProductId equals p.Id
+                             where rl.RequestId == requestId
+                             select new {
+                                 LineTotal = rl.Quantity * p.Price
+                             }).Sum(x => x.LineTotal);
+            _context.SaveChanges();
+        }
+
         public IEnumerable<RequestLine> GetAll() {
             return _context.RequestLines.Include(x => x.Request)
                 .Include(x => x.Product).ToList();
